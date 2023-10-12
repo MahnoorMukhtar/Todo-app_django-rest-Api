@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from api.views import *
-from frontend.views import *
+from django.views.generic import TemplateView
 
 urlpatterns = [
 
@@ -29,6 +29,7 @@ urlpatterns = [
     path('task_update/<str:pk>/', taskUpdate, name="task_update"),
     path('task_delete/<str:pk>/', taskDelete, name="task_delete"),
     path('admin/', admin.site.urls),
+    path('', TemplateView.as_view(template_name= "index.html")),
 
 
     #Frontend urls
